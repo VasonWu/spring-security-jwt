@@ -1,0 +1,25 @@
+#logging.level.org.springframework.web=DEBUG
+#logging.level.org.hibernate=DEBUG
+#logging.level.org.hibernate.SQL=DEBUG
+#logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE
+#logging.level.org.hibernate.type=TRACE
+#logging.level.org.springframework=DEBUG
+spring:
+  h2:
+    console:
+      enabled: true
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.H2Dialect
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+    schema:
+      - classpath:schema.sql
+    data:
+      - classpath:data.sql
+    initialization-mode: always
